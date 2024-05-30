@@ -34,13 +34,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Successful Implementation", Toast.LENGTH_SHORT).show();
                 String s= editTextText.getText().toString();
                 int number=Integer.parseInt(s);
+                StringBuilder results = new StringBuilder();
                 for(int i=1;i<11;i++) {
                     int result = number * i;
-                    System.out.println(result);
-                    textView.setText("result is" +" "+result);
+                    results.append(number).append(" x ").append(i).append(" = ").append(result).append("\n");
+                }
+                textView.setText(results.toString());
                 }
 
-            }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
